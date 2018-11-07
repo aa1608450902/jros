@@ -1,0 +1,47 @@
+cmake_minimum_required(VERSION 2.8.3)
+
+project(template)
+
+message(STATUS "--- start execute cmake")
+# message(FATAL_ERROR "+++ found a fatal error")
+# message(SEND_ERROR "+++ found a send error")
+
+# add_subdirectory(sub-dir)
+
+# set(CMAKE_C_COMPILER /usr/local/bin/gcc)
+# set(CMAKE_CXX_COMPILER /usr/local/bin/gcc)
+
+### You can set compile options by CMAKE_CXX_FLAGS variable;
+### You can also use "add_definitions" to add compile options.
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+set(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -g -ggdb")
+set(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -O3 -Wall")
+
+# add_definitions(-DDEBUG)
+# add_definitions("-Wall -ansi –pedantic –g")
+
+set(EXECUTABLE_OUTPUT_PATH /binary_file_path)
+set(LIBRARY_OUTPUT_PATH /library_file_path)
+
+set(CMAKE_BUILD_TYPE Release)
+
+include_directories(
+    /usr/local/include
+)
+
+add_executable(template
+    template/main.cpp
+)
+
+add_library(template shared
+    
+)
+
+link_directories(
+    /usr/local/lib
+)
+
+target_link_libraries(template
+    
+)
