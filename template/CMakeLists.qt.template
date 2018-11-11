@@ -1,0 +1,32 @@
+cmake_minimum_required(VERSION 3.1.0)
+
+project(template_pro)
+
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTOUIC ON)
+
+find_package(Qt5Core)
+find_package(Qt5Widgets)
+find_package(Qt5Multimedia)
+find_package(Qt5MultimediaWidgets)
+
+## The following variables will be useful: 
+## xxx_FOUND xxx_VERSION xxx_INCLUDE_DIRS xxx_LIBRARIES xxx_DEFINITIONS xxx_COMPILE_DEFINITIONS
+
+include_directories(
+
+)
+
+add_executable(template_pro
+    main.cpp
+    mainwindow.h
+    mainwindow.ui
+    mainwindow.cpp
+)
+
+target_link_libraries(template_pro
+    Qt5::Core
+    Qt5::Widgets
+    Qt5::Multimedia
+    Qt5::MultimediaWidgets
+)
