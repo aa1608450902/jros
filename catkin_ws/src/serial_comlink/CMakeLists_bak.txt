@@ -1,0 +1,43 @@
+cmake_minimum_required(VERSION 2.8.3)
+
+project(serial_comlink)
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+set(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -g -ggdb")
+set(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -O3 -Wall")
+set(EXECUTABLE_OUTPUT_PATH /home/u01/catkin_ws/devel/lib/serial_comlink)
+
+include_directories(
+    /usr/include
+    /opt/ros/indigo/include
+    /home/u01/catkin_ws/devel/include
+    src
+    src/serial_comlink
+    include
+)
+
+link_directories(
+#    /usr/lib
+    /opt/ros/indigo/lib
+    /usr/lib/x86_64-linux-gnu
+    /home/u01/catkin_ws/devel/include
+#    /usr/local/lib
+)
+
+add_executable(serial_comlink
+    src/serial_comlink/main.cpp
+    src/serial_comlink/serial_comlink_node.cpp
+    src/serial_comlink/serial.cpp
+    src/serial_comlink/Analyzer.cpp
+    src/serial_comlink/CameraAdjuster.cpp
+)
+
+target_link_libraries(serial_comlink
+#    pthread
+    boost_system
+    boost_thread
+    roscpp
+    rosconsole
+    roscpp_serialization
+    rostime
+)
