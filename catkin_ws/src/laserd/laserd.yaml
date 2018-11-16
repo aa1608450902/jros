@@ -1,0 +1,24 @@
+# image process
+# 1. red laser setting
+red_hsv_1_low: [0, 180, 100]
+red_hsv_1_top: [22, 255, 255]
+red_hsv_2_low: [160, 180, 100]
+red_hsv_2_top: [180, 255, 255]
+## processing red mask, closing operation, seperate env domain
+red_mask_close_times: 3
+red_mask_seperate_ratio: 0.8
+## processing red gray image, gaussian blur, seperate env domain
+red_gray_seperate_ratio: 0.8
+## after merging red mask and red gray mask
+red_final_close_times: 2
+
+# 2. green laser setting
+hsv_green_low: [50, 150, 100]
+hsv_green_top: [70, 255, 255]
+## processing green mask, closing operation, seperate env domain
+green_mask_close_times: 3
+green_mask_seperate_ratio: 0.8
+## processing green gray image, gaussian blur, seperate env domain
+green_gray_seperate_ratio: 0.5
+## after merging green mask and green gray mask
+green_final_close_times: 2
