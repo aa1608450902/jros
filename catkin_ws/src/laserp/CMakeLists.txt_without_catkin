@@ -1,0 +1,35 @@
+cmake_minimum_required(VERSION 2.8.3)
+
+project(laserp)
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+set(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -g -ggdb")
+set(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -O3 -Wall")
+
+set(EXECUTABLE_OUTPUT_PATH /home/u01/catkin_ws/devel/lib/laserp)
+
+include_directories(
+    /usr/include
+    /opt/ros/indigo/include
+    /home/u01/catkin_ws/devel/include
+    include
+    src
+)
+
+link_directories(
+#    /usr/lib
+#    /usr/local/lib
+    /opt/ros/indigo/lib
+)
+
+add_executable(laserp_node
+    src/laserp_node.cpp
+)
+
+target_link_libraries(laserp_node
+    roscpp
+    rosconsole
+    roscpp_serialization
+    opencv_core opencv_highgui opencv_imgproc opencv_imgcodecs
+    /opt/ros/indigo/lib/libcv_bridge.so
+)
