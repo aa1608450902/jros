@@ -1,0 +1,11 @@
+# image process
+# 1. green laser setting
+# reference value: low [35,150,200] upper [77,255,255]
+greenHSVLowerLimit: [ 40, 80, 225]
+greenHSVUpperLimit: [ 77, 255, 255]
+
+# 2. red laser setting
+redHSVPart1LowerLimit: [  0,  80, 200]
+redHSVPart1UpperLimit: [ 10, 255, 255]
+redHSVPart2LowerLimit: [156,  80, 200]
+redHSVPart2UpperLimit: [180, 255, 255]

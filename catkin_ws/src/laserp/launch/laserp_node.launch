@@ -1,0 +1,4 @@
+<launch>
+	<rosparam command="load" file="$(find laserp)/config/default.yaml"/>
+	<node name="laserp_node_name" pkg="laserp" type="laserp_node"/>
+</launch>
