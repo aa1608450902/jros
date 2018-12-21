@@ -32,7 +32,7 @@ const std::map<std::string, int> gSlavaIns = {
 	{"\xcc\x01\x01\x99", 1}, {"\xcc\x01\x01\x06", 2},
 	{"\xcc\x01\x01\x00", 3}, {"\xcc\x01\x01\x05", 4},
 	{"\xcc\x01\x01\x01", 5}, {"\xcc\x01\x01\x11", 6},
-				{"\xcc\x01\x01\x12", 7}
+	{"\xcc\x01\x01\x12", 7}
 };
 
 static std::string toHex(int);
@@ -42,10 +42,6 @@ static void positionCallback(
 static void serialLoop();
 
 int main(int argc, char* argv[]) {
-//	std::bitset<64> b(std::stoul(std::string("dd0094006800000e"), 0, 16));
-//	std::cout << b << std::endl;
-//	exit(0);
-
 	ROS_INFO("start serial linker node ...");
 
 	// init variables
