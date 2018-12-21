@@ -85,18 +85,14 @@ void positionCallback(const laserp::Point32Plus::ConstPtr &msg) {
 					inss = gInsMap.at(ins);
 				else
 					inss = ErrorIns;
-				char bbuf[65]; void *p = bbuf;
-				*(reinterpret_cast<unsigned char *>(p))     = 0xdd;
-				*(reinterpret_cast<unsigned char *>(p) + 1) = 0xbb;
-				*(reinterpret_cast<unsigned char *>(p) + 2) = 0xaa;
-				*(reinterpret_cast<unsigned char *>(p) + 3) = static_cast<unsigned char>(ins);
-				*(reinterpret_cast<unsigned char *>(p) + 4) = static_cast<unsigned char>(ins);
-				*(reinterpret_cast<unsigned char *>(p) + 5) = static_cast<unsigned char>(255 - ins);
-				*(reinterpret_cast<unsigned char *>(p) + 6) = static_cast<unsigned char>(255 - ins);
-				*(reinterpret_cast<unsigned char *>(p) + 7) = 0x0e;
-				bbuf[64] = '\0';
-				std::string sss(bbuf);
-				gSerialPort->writeBuffer(sss);
+				char bbuf[65]; void *p = bbuf; else {
+					if (gInsMap.find(ins) != gInsMap.end())
+						inss = gInsMap.at(ins);
+					else
+						inss = ErrorIns;
+				}
+				std::bitset<64> bin(inss);
+				gSerialPort->writeBuffer(bin.to_string());
 				ROS_INFO(">>>> analyze result: %s", inss.data());
 				gAnalyzer->reset();
 			} else {
