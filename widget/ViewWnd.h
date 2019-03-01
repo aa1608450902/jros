@@ -12,6 +12,8 @@ public:
 	virtual ~ViewWnd() = default;
 signals:
     void moveV(int dis);
+    void autoAdjust();
+    void displayCtrlWnd();
 protected:
     void mousePressEvent(QMouseEvent *event);
     void mouseReleaseEvent(QMouseEvent *event);
