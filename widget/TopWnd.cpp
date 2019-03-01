@@ -19,7 +19,8 @@ TopWnd::TopWnd(QWidget *parent) : QWidget(parent) {
     plt.setColor(QPalette::Background, QColor(0xff,0xff,0xfb));
     setPalette(plt);
 //	_ctrlWnd = new CtrlWnd(this);
-    settings = new PressButton(this);
+    settings = new PressButton("/home/aiyo/jpro-2/widget/setting-1.png", this);
+    ptzButton = new PressButton("/home/aiyo/jpro-2/widget/ptz.png", this);
 	_viewWnd = new ViewWnd(this);
 	manageWnd = new ManageWnd(this);
 	viewWndAni = new QPropertyAnimation(_viewWnd, "pos");
@@ -30,6 +31,7 @@ TopWnd::TopWnd(QWidget *parent) : QWidget(parent) {
 	manageWnd->setGeometry(0 - manageWnd->width(), HEAD_HEIGHT, manageWnd->width(), manageWnd->height());
 //	settings->setGeometry(QApplication::desktop()->width() - settings->width(), 0, settings->width(), settings->height());
 	settings->setGeometry(0, 0, settings->width(), settings->height());
+	ptzButton->setGeometry(settings->width(), 0, ptzButton->width(), ptzButton->height());
 //	_viewWnd.
 //    settings->j_setPosition(QApplication::desktop()->width() - HEAD_HEIGHT / 2 * 3, 0);
 //	settings->setGeometry(QApplication::desktop()->width() - HEAD_HEIGHT / 2 * 3, 0, HEAD_HEIGHT / 2 * 3, HEAD_HEIGHT);

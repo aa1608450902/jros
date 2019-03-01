@@ -9,14 +9,14 @@
 #define GAP 10
 #define MOVE_LITTLE 4
 
-PressButton::PressButton(QWidget *parent) : QWidget(parent) {
+PressButton::PressButton(const QString& pic, QWidget *parent) : QWidget(parent) {
     setAutoFillBackground(true);
     auto plt = palette();
     plt.setColor(QPalette::Background, QColor(0xff,0xff,0xfb));
     setPalette(plt);
 
     image = new QImage();
-    image->load("/home/aiyo/jpro-2/widget/setting-1.png");
+    image->load(pic);
     imagePosition.setX((HEAD_HEIGHT / 2 * 3 - HEAD_HEIGHT) / 2);
     imagePosition.setY(0);
     resize(HEAD_HEIGHT / 2 * 3, HEAD_HEIGHT);
@@ -45,16 +45,6 @@ void PressButton::mouseReleaseEvent(QMouseEvent *event) {
 void PressButton::mouseDoubleClickEvent(QMouseEvent *event) {}
 void PressButton::mouseMoveEvent(QMouseEvent *event) {}
 
-//void PressButton::enterEvent(QEvent *event) {
-//    auto plt = palette();
-//    plt.setColor(QPalette::Background, QColor(0x8a, 0x8c, 0x8e));
-//    setPalette(plt);
-//}
-//void PressButton::leaveEvent(QEvent *event) {
-//    auto plt = palette();
-//    plt.setColor(QPalette::Background, QColor(0xff,0xff,0xfb));
-//    setPalette(plt);
-//}
 void PressButton::onClicked() {
 
 }

@@ -31,6 +31,7 @@ private:
 	ViewWnd* _viewWnd;
 	ManageWnd* manageWnd;
 	PressButton* settings;
+	PressButton* ptzButton;
     QPropertyAnimation *viewWndAni;
     QPropertyAnimation *manageWndAni;
     QImage *logo;
